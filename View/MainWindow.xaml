@@ -1,0 +1,62 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1.View"
+        mc:Ignorable="d"
+        Title="Библиотека" Height="450" Width="800"
+        WindowStyle="None"
+        Background="Transparent"
+        AllowsTransparency="True" WindowStartupLocation="CenterScreen">
+
+        <Border Background="LightSkyBlue" Height="auto">
+            <StackPanel>
+                <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="65"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="Библиотека" VerticalAlignment="Center"
+                   HorizontalAlignment="Center" Foreground="White"
+                   FontSize="27" FontWeight ="Bold" Margin="0 0 0 0" FontFamily="Segoe UI Black"/>
+
+                    <StackPanel Grid.Row="1">
+                        <Button Command="{Binding NavigateToBooksCommand}" Content="Книги" Height="50"
+                             Foreground="White" FontSize="20" Margin=" 5 70 5 10"
+                             Background="Transparent" BorderBrush="#FF1683ED" FontFamily="Segoe UI Black" />
+                        <Button x:Name="UsersRB" Command="{Binding NavigateToUsersCommand}" 
+                             Content="Пользователи" Height="50" Margin="5 0 5 10"
+                             Foreground="White" Background="Transparent" FontSize="20" BorderBrush="#FF1683ED" FontFamily="Segoe UI Black"/>
+                        <Button x:Name="GiveBookRB" Command="{Binding NavigateToGiveBookCommand}" 
+                             Content="Выдать книгу" Height="50" Margin="5 0 5 10"
+                             Foreground="White" Background="Transparent" FontSize="20" BorderBrush="#FF1683ED" FontFamily="Segoe UI Black"/>
+                    </StackPanel>
+
+
+
+                    <Button Command="{Binding CloseCommand}" Content="X" HorizontalAlignment="Right" 
+                    Margin="0 3 3 0" VerticalAlignment="Top" 
+                    Width="22" Height="18" Grid.Column="1"
+                    Background="White" BorderBrush="GhostWhite"
+                    VerticalContentAlignment="Center" FontSize="11"
+                    Foreground="LightSkyBlue" FontWeight="Bold"/>
+                <Button Content="□" Command="{Binding ToggleWindowStateCommand}"
+                    HorizontalAlignment="Right" Grid.Column="1"
+                    Width="22" Height="18" Background="White"
+                    BorderBrush="GhostWhite" FontSize="10"
+                    VerticalAlignment="Top" Margin="0 3 27 0"
+                    Foreground="LightSkyBlue" FontWeight="Bold"/>
+                    <Frame x:Name="ContentFrame" Grid.Row="1"  
+                   Grid.Column="1" Margin="5" NavigationUIVisibility="Hidden"
+                       Content="{Binding CurrentPage}"/>
+                </Grid>
+            </StackPanel>
+        </Border>
+</Window>

@@ -1,0 +1,53 @@
+﻿<UserControl x:Class="WpfApp1.View.GiveBook"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfApp1.View" 
+             mc:Ignorable="d" 
+             d:DesignHeight="370" d:DesignWidth="590">
+    
+    <StackPanel>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="590"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="65"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Выдать книгу читателю"
+                       Foreground="#FF1683ED"
+                       FontSize="23"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       Margin="10 10 0 10" FontFamily="Segoe UI Black"/>
+            <Grid Grid.Row="1">
+                <Label Content="Выберите пользователя" HorizontalAlignment="Left" FontSize="17"
+                       VerticalAlignment="Top" Margin="10 10 0 0" FontFamily="Segoe UI Black"
+                       Foreground="#FF1683ED"/>
+                <ComboBox x:Name="userComboBox" ItemsSource="{Binding Users}"
+                          SelectedItem="{Binding SelectedUser}" HorizontalAlignment="Left" VerticalAlignment="Top"
+                          Width="200" Margin="250 15 0 0" FontFamily="Segoe UI Black"
+                          IsEditable="True" />
+
+                <Label Content="Выберите книгу" HorizontalAlignment="Left"
+                       FontSize="17" VerticalAlignment="Top" Margin="10 50 0 0" FontFamily="Segoe UI Black"
+                       Foreground="#FF1683ED"/>
+                <ComboBox x:Name="bookComboBox" ItemsSource="{Binding Books}"
+                          SelectedItem="{Binding SelectedBook}" HorizontalAlignment="Left" VerticalAlignment="Top"
+                          Width="200" Margin="250 55 0 0" FontFamily="Segoe UI Black"
+                          IsEditable="True" />
+
+                <Button Content="Выдать книгу" HorizontalAlignment="Left"
+                        VerticalAlignment="Top" Width="200" Margin="250 110 0 0"
+                        Command="{Binding GrantBookCommand}" FontFamily="Segoe UI Black"
+                        FontSize="14"
+                        Background="#FF1683ED" Foreground="White"/>
+            </Grid>
+
+        </Grid>
+    </StackPanel>
+</UserControl>
